@@ -1,4 +1,7 @@
 # Algorithms, Sedgewick and Wayne
+**James Emerson Vo**
+I am attempting to complete Dylan Brown's project in translating from Java to C++ in terms of data structures and algorithms from _Algorithms, 4th Edition_ by Robert Sedgewick and Kevin Wayne
+
 **Dylan Brown**  
 djwbrown \_at\_ gmail
 
@@ -22,16 +25,16 @@ make
 
 ## List of algorithms
 *Fundamentals*  
-1.1 [Pushdown stack (resizing array)](src/lifo-stack-resizing-array.cpp)  
-1.2 [Pushdown stack (linked-list)](src/lifo-stack-linked-list.cpp)  
-1.3 [FIFO queue](src/fifo-queue.cpp)  
-1.4 [Bag (Multiset)](src/bag-multiset.cpp)  
-1.5 [Union-find (Disjoint-set)](src/union-find.cpp)  
+1.1 [Pushdown stack (resizing array)](src/lifo-stack-resizing-array.cpp)  by **Dylan Brown**  
+1.2 [Pushdown stack (linked-list)](src/lifo-stack-linked-list.cpp)        by **Dylan Brown**  
+1.3 [FIFO queue](src/fifo-queue.cpp)                                      by **Dylan Brown**  
+1.4 [Bag (Multiset)](src/bag-multiset.cpp)                                by **Dylan Brown**  
+1.5 [Union-find (Disjoint-set)](src/union-find.cpp)                       by **Dylan Brown**  
 
 *Sorting*  
-2.1 [Selection sort](src/selection-sort.cpp)  
-2.2 [Insertion sort](src/insertion-sort.cpp)  
-2.3 [Shell sort](src/shell-sort.cpp)  
+2.1 [Selection sort](src/selection-sort.cpp)                              by **Dylan Brown**  
+2.2 [Insertion sort](src/insertion-sort.cpp)                              by **Dylan Brown**  
+2.3 [Shell sort](src/shell-sort.cpp)                                      by **Dylan Brown**  
 2.4 Top-down and bottom-up mergesort  
 2.5 Quicksort, and quicksort with 3-way partitioning  
 
