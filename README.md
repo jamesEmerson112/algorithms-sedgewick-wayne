@@ -1,5 +1,6 @@
 # Algorithms, Sedgewick and Wayne
 **James Emerson Vo**
+
 I am attempting to complete Dylan Brown's project in translating from Java to C++ in terms of data structures and algorithms from _Algorithms, 4th Edition_ by Robert Sedgewick and Kevin Wayne
 
 **Dylan Brown**  
