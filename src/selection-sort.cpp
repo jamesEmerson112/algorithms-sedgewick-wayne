@@ -13,12 +13,12 @@
 // Note that we conduct ~(n^2 / 2 compares + n swaps) to create an ascending
 // sort of comparable items in time O(n^2).
 
-#include <chrono>
-#include <cstdlib>
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <utility>
+#include <chrono>       // time the algorithm
+#include <cstdlib>      
+#include <fstream>      // reading input files
+#include <iostream>     // basic I/O
+#include <string>       
+#include <utility>      
 #include <vector>
 
 using std::cout;
@@ -26,6 +26,22 @@ using std::endl;
 using std::string;
 using std::vector;
 
+
+/*
+* class_identifier: this class Selection is doing a Selection sort
+*
+* constructors: 
+*
+* public functions: a vertical list of public function prototypes
+* void sort: sorting a vector
+* bool is_sorted: confirm wheather a vector is sorted
+* void show: print the vector
+*
+* static members: a vertical list of any static members
+*                 (variables and function prototypes)
+* bool less: compare the values of two variables
+* void exch: swapping place
+*/
 template <typename T> class Selection {
 public:
   // requires Sortable<T> (T must implement comparison operators).
