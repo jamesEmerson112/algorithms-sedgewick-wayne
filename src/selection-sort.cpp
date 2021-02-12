@@ -39,24 +39,17 @@ using std::vector;
 *
 * static members: a vertical list of any static members
 *                 (variables and function prototypes)
-* bool less: compare the values of two variables
+* bool is_less: compare the values of two variables
 * void exch: swapping place
 */
-template <typename T> class Selection {
+template <typename Type> class Selection {
 public:
   // requires Sortable<T> (T must implement comparison operators).
-  void sort(vector<T> &a);
+  void sort(vector<Type> &);
 
-  bool is_sorted(const vector<T> &a) {
-    for (int i = 1; i < a.size(); i++) {
-      if (less(a[i], a[i - 1])) {
-        return false;
-      }
-    }
-    return true;
-  }
+  bool is_sorted(const vector<Type> &);
 
-  void show(const vector<T> &a) {
+  void show(const vector<Type> &a) {
     for (auto item : a) {
       cout << item << " ";
     }
@@ -65,18 +58,35 @@ public:
 
 private:
   // Returns true if v < w. Again, T must implement comparison operators.
-  bool less(T v, T w) { return (v < w); }
+  bool is_less(Type v, Type w) { return (v < w); }
   // Pass by reference to ensure std::swap mutates the caller's data.
-  void exch(vector<T> &a, int i, int j) { std::swap(a[i], a[j]); }
+  void exch(vector<Type> &a, int i, int j) { std::swap(a[i], a[j]); }
 };
 
-template <typename T> void Selection<T>::sort(vector<T> &a) {
-  int N = a.size();
+// boolean is_sorted checks if the vector is sorted
+// input: vector alpha
+// output: true or false
+template <typename Type>
+bool is_sorted(const vector<Type> &alpha) {
+    for (int i = 1; i < alpha.size(); i++) {
+      if (is_less(alpha[i], alpha[i - 1])) {
+        return false;
+      }
+    }
+    return true;
+}
+
+// void Selection implements Selection Sort on vector alpha
+// input: vector alpha
+// output: sorted vector alpha
+template <typename Type> 
+void Selection<Type>::sort(vector<Type> &alpha) {
+  int N = alpha.size();
   for (int i = 0; i < N; i++) {
     // show(a); // Debug
     int min = i;
     for (int j = i + 1; j < N; j++) {
-      if (less(a[j], a[min])) {
+      if (is_less(alpha[j], alpha[min])) {
         min = j;
       }
     }
