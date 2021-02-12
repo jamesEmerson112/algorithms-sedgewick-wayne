@@ -35,7 +35,7 @@ public:
   void sort(vector<T> &a);
 
   bool is_sorted(const vector<T> &a) {
-    for (int i = 1; i < a.size(); i++) {
+    for (size_t i = 1; i < a.size(); i++) {
       if (less(a[i], a[i - 1])) {
         return false;
       }
