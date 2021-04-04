@@ -29,19 +29,45 @@ using std::endl;
 using std::string;
 using std::vector;
 
-template <typename T> class Insertion {
-public:
-  // requires Sortable<T> (T must implement comparison operators).
-  void sort(vector<T> &a);
 
-  bool is_sorted(const vector<T> &a) {
-    for (size_t i = 1; i < a.size(); i++) {
-      if (less(a[i], a[i - 1])) {
+/*
+ * class Insertion is a class representing Insertion sort
+ * constructors: none but sorting
+ * return value: sorted vector
+ */
+template <typename T> class Insertion 
+{
+  public:
+    // requires Sortable<T> (T must implement comparison operators).
+    void sort(vector<T> &array);
+    bool is_sorted(const vector<T> &array);
+    void show(const vector<T> &array);
+
+  private:
+    // Returns true if v < w. Again, T must implement comparison operators.
+    bool less(T alpha, T beta) { return (alpha < beta); }
+    // Pass by reference to ensure std::swap mutates the caller's data.
+    void exch(vector<T> &array, int i, int j) { std::swap(array[i], array[j]); }
+};
+
+/**************************************
+ * FUNCTION: is_sorted
+ * PARAMETERS: reference of vector array
+ * RETURN: bool
+ * DESCRIPTION: determine whether the array is sorted
+ **************************************/
+template<typename T>
+bool Insertion<T>::is_sorted(const vector<T> &array) 
+{
+    for (size_t i = 1; i < a.size(); i++)     // guideline recommends to use either unsigned_int or size_t
+    {
+      if (less(array[i], array[i - 1])) 
+      {
         return false;
       }
     }
     return true;
-  }
+}
 
   void show(const vector<T> &a) {
     for (auto item : a) {
@@ -49,13 +75,6 @@ public:
     }
     cout << endl;
   }
-
-private:
-  // Returns true if v < w. Again, T must implement comparison operators.
-  bool less(T v, T w) { return (v < w); }
-  // Pass by reference to ensure std::swap mutates the caller's data.
-  void exch(vector<T> &a, int i, int j) { std::swap(a[i], a[j]); }
-};
 
 template <typename T> void Insertion<T>::sort(vector<T> &a) {
   int N = a.size();
