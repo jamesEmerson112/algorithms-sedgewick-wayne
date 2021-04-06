@@ -40,8 +40,8 @@ template <typename T> class Insertion
   public:
     // requires Sortable<T> (T must implement comparison operators).
     void sort(vector<T> &array);
-    bool is_sorted(const vector<T> &array);
-    void show(const vector<T> &array);
+    bool is_sorted(const vector<T> array);
+    void show(const vector<T> array);
 
   private:
     // Returns true if v < w. Again, T must implement comparison operators.
@@ -57,11 +57,11 @@ template <typename T> class Insertion
  * DESCRIPTION: determine whether the array is sorted
  **************************************/
 template<typename T>
-bool Insertion<T>::is_sorted(const vector<T> &array) 
+bool Insertion<T>::is_sorted(const vector<T> array) 
 {
-    for (size_t i = 1; i < a.size(); i++)     // guideline recommends to use either unsigned_int or size_t
+    for (size_t i = 1; i < array.size(); i++)     // guideline recommends to use either unsigned_int or size_t
     {
-      if (less(array[i], array[i - 1])) 
+      if (array[i-1] > array[i]) 
       {
         return false;
       }
@@ -69,14 +69,29 @@ bool Insertion<T>::is_sorted(const vector<T> &array)
     return true;
 }
 
-  void show(const vector<T> &a) {
-    for (auto item : a) {
+/**************************************
+ * FUNCTION: show shows the sorted array
+ * PARAMETERS: vector array
+ * RETURN: void
+ * DESCRIPTION: print the sorted array
+ **************************************/
+template<typename T>
+void Insertion<T>::show(const vector<T> array) {
+    for (auto item : array) 
+    {
       cout << item << " ";
     }
     cout << endl;
   }
 
-template <typename T> void Insertion<T>::sort(vector<T> &a) {
+/**************************************
+ * FUNCTION: sort sorts the array
+ * PARAMETERS: referecen of vector array
+ * RETURN: void
+ * DESCRIPTION: sorting the array
+ **************************************/
+template <typename T> 
+void Insertion<T>::sort(vector<T> &a) {
   int N = a.size();
   for (int i = 1; i < N; i++) {
     // show(a); // Debug

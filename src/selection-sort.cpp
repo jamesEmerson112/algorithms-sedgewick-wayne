@@ -42,12 +42,13 @@ using std::vector;
 * bool is_less: compare the values of two variables
 * void exch: swapping place
 */
-template <typename Type> class Selection {
+template <typename Type> 
+class Selection {
 public:
   // requires Sortable<T> (T must implement comparison operators).
   void sort(vector<Type> &);
 
-  bool is_sorted(const vector<Type> &);
+  bool is_sorted(const vector<Type> );
 
   void show(const vector<Type> &a) {
     for (auto item : a) {
@@ -64,33 +65,36 @@ private:
 };
 
 // boolean is_sorted checks if the vector is sorted
-// input: vector alpha
+// input: vector array
 // output: true or false
-template <typename Type>
-bool is_sorted(const vector<Type> &alpha) {
-    for (int i = 1; i < alpha.size(); i++) {
-      if (is_less(alpha[i], alpha[i - 1])) {
+template<typename Type>
+bool Selection<Type>::is_sorted(const vector<Type> array) 
+{
+    for (size_t i = 1; i < array.size(); i++)     // guideline recommends to use either unsigned_int or size_t
+    {
+      if (array[i-1] > array[i]) 
+      {
         return false;
       }
     }
     return true;
 }
 
-// void Selection implements Selection Sort on vector alpha
-// input: vector alpha
-// output: sorted vector alpha
+// void Selection implements Selection Sort on vector array
+// input: vector array
+// output: sorted vector array
 template <typename Type> 
-void Selection<Type>::sort(vector<Type> &alpha) {
-  int N = alpha.size();
+void Selection<Type>::sort(vector<Type> &array) {
+  int N = array.size();
   for (int i = 0; i < N; i++) {
     // show(a); // Debug
     int min = i;
     for (int j = i + 1; j < N; j++) {
-      if (is_less(alpha[j], alpha[min])) {
+      if (is_less(array[j], array[min])) {
         min = j;
       }
     }
-    exch(a, i, min);
+    exch(array, i, min);
   }
 }
 

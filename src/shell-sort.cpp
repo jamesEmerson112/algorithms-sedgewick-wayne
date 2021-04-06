@@ -31,13 +31,29 @@
 #include <utility>
 #include <vector>
 
+/*
+* class_identifier: this class Selection is doing a Shell sort
+*
+* constructors: 
+*
+* public functions: a vertical list of public function prototypes
+* void sort: sorting a vector
+* bool is_sorted: confirm wheather a vector is sorted
+* void show: print the vector
+*
+* static members: a vertical list of any static members
+*                 (variables and function prototypes)
+* bool is_less: compare the values of two variables
+* void exch: swapping place
+*/
 template <typename T> class Shell {
 public:
   // requires Sortable<T> (T must implement comparison operators).
   void sort(std::vector<T> &a);
 
-  bool is_sorted(const std::vector<T> &a) {
-    for (int i = 1; i < a.size(); i++) {
+  bool is_sorted(const std::vector<T> a) 
+  {
+    for (size_t i = 1; i < a.size(); i++) {
       if (less(a[i], a[i - 1])) {
         return false;
       }
@@ -45,7 +61,7 @@ public:
     return true;
   }
 
-  void show(const std::vector<T> &a) {
+  void show(const std::vector<T> a) {
     for (auto item : a) {
       std::cout << item << " ";
     }
@@ -59,16 +75,17 @@ private:
   void exch(std::vector<T> &a, int i, int j) { std::swap(a[i], a[j]); }
 };
 
-template <typename T> void Shell<T>::sort(std::vector<T> &a) {
-  int N = a.size();
+template <typename T> 
+void Shell<T>::sort(std::vector<T> &array) {
+  int N = array.size();
   int h = 1;
   while (h < N / 3) // Note the integer division.
     h = 3 * h + 1;  // 1, 4, 13, 40, 121, 364, 1093, ...
   
   while (h >= 1) {
     for (int i = h; i < N; i++) {
-      for (int j = i; j >= h && less(a[j], a[j - h]); j -= h)
-        exch(a, j, j - h);
+      for (int j = i; j >= h && less(array[j], array[j - h]); j -= h)
+        exch(array, j, j - h);
     }
 
     h = h / 3; // Again, note the integer division.
